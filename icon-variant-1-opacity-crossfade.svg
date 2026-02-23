@@ -1,0 +1,22 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .outer { animation: fadeOuter 3s ease-in-out infinite alternate; transform-origin: center; transform-box: fill-box; }
+  .inner { animation: fadeInner 3s ease-in-out infinite alternate; transform-origin: center; transform-box: fill-box; }
+  @keyframes fadeOuter {
+    0%, 20% { opacity: 1; transform: scale(1); }
+    80%, 100% { opacity: 0; transform: scale(0); }
+  }
+  @keyframes fadeInner {
+    0%, 20% { opacity: 0; transform: scale(0); }
+    80%, 100% { opacity: 1; transform: scale(1); }
+  }
+</style>
+<circle class="inner" cx="24" cy="16" r="4" fill="black"/>
+<circle class="outer" cx="36" cy="12" r="4" fill="black"/>
+<circle class="inner" cx="32" cy="24" r="4" fill="black"/>
+<circle class="outer" cx="12" cy="36" r="4" fill="black"/>
+<circle class="inner" cx="16" cy="24" r="4" fill="black"/>
+<circle class="outer" cx="12" cy="12" r="4" fill="black"/>
+<circle class="inner" cx="24" cy="32" r="4" fill="black"/>
+<circle class="outer" cx="36" cy="36" r="4" fill="black"/>
+</svg>

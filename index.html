@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pvolve Animation Prototypes</title>
+    <style>
+        :root {
+            /* Pvolve-inspired palette: earthy, calm, sophisticated */
+            --bg-color: #F8F5F2; /* Soft beige/sand */
+            --text-color: #2D2D2D; /* Deep charcoal */
+            --card-bg: #FFFFFF;
+            --accent: #E5A99B; /* Soft peach/clay */
+            --font-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            margin: 0;
+            padding: 40px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        p.subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: 300;
+        }
+
+        section {
+            margin-bottom: 80px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+        }
+
+        .preview {
+            width: 150px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            background: #fdfdfd;
+            border-radius: 50%;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* The grid SVGs are large, so we scale them down for preview */
+        .preview img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .grid-preview {
+            width: 250px;
+            height: 250px;
+            border-radius: 16px;
+            background: #2D2D2D; /* High contrast background for the white grid strokes */
+        }
+        
+        .grid-preview img {
+            width: 80%;
+            height: 80%;
+        }
+
+        h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            margin: 0 0 8px 0;
+        }
+
+        p.desc {
+            font-size: 0.85rem;
+            color: #888;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: var(--bg-color);
+            color: #666;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Pvolve Animations</h1>
+        <p class="subtitle">Exploring fluid, functional movement for brand assets</p>
+    </header>
+
+    <section>
+        <h2>Icon Variants</h2>
+        <div class="grid">
+            <div class="card">
+                <span class="tag">Original</span>
+                <div class="preview">
+                    <img src="icon.svg" alt="Original Icon">
+                </div>
+                <h3>Static Icon</h3>
+                <p class="desc">The un-animated base vector.</p>
+            </div>
+
+            <div class="card">
+                <span class="tag">V1 • Rotate</span>
+                <div class="preview">
+                    <img src="icon-animated.svg" alt="Animated Icon">
+                </div>
+                <h3>Mechanical Rotation</h3>
+                <p class="desc">Rigid 90-degree step rotations.</p>
+            </div>
+
+            <div class="card">
+                <span class="tag">V2 • Slide</span>
+                <div class="preview">
+                    <img src="icon-animated-smooth.svg" alt="Animated Icon">
+                </div>
+                <h3>Smooth Slide</h3>
+                <p class="desc">Linear movement with collision avoidance.</p>
+            </div>
+
+            <div class="card">
+                <span class="tag">V3 • Fade</span>
+                <div class="preview">
+                    <img src="icon-variant-1-opacity-crossfade.svg" alt="Animated Icon">
+                </div>
+                <h3>Subtle Crossfade</h3>
+                <p class="desc">Gentle pulsing and fading of groups.</p>
+            </div>
+
+            <div class="card">
+                <span class="tag">V4 • Wave</span>
+                <div class="preview">
+                    <img src="icon-variant-2-staggered-wave.svg" alt="Animated Icon">
+                </div>
+                <h3>Staggered Wave</h3>
+                <p class="desc">Pairs swapping in a ripple sequence.</p>
+            </div>
+
+            <div class="card">
+                <span class="tag">V5 • Arc</span>
+                <div class="preview">
+                    <img src="icon-variant-3-curved-swap.svg" alt="Animated Icon">
+                </div>
+                <h3>Curved Orbit</h3>
+                <p class="desc">Pairs swinging around each other.</p>
+            </div>
+
+            <div class="card">
+                <span class="tag">V6 • Flow</span>
+                <div class="preview">
+                    <img src="icon-variant-4-continuous-flow.svg" alt="Animated Icon">
+                </div>
+                <h3>Continuous Flow</h3>
+                <p class="desc">Endless looping through all 8 positions.</p>
+            </div>
+
+            <div class="card">
+                <span class="tag">V7 • Snap</span>
+                <div class="preview">
+                    <img src="icon-variant-5-elastic-snap.svg" alt="Animated Icon">
+                </div>
+                <h3>Elastic Snap</h3>
+                <p class="desc">Spring-loaded dynamic jumps.</p>
+            </div>
+        </div>
+    <section>
+        <h2>Grid Animations</h2>
+        <div class="grid" style="display: flex; justify-content: center;">
+            <div class="card" style="width: 100%; max-width: 600px; padding: 60px;">
+                <span class="tag">Morphing • 3D Zoom</span>
+                <div class="preview grid-preview" style="width: 400px; height: 400px;">
+                    <img src="grid.svg" alt="Animated Grid" style="width: 100%; height: 100%;">
+                </div>
+                <h3>Pvolve Dynamic Grid</h3>
+                <p class="desc">Dots transition through shapes (Square, Circle, Diamond, Cube) with a staggered 3D zoom, while text fades in sync.</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

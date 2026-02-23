@@ -1,0 +1,50 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .dot circle { animation: pulse 4s ease-in-out infinite; }
+  .dot {
+    animation-duration: 4s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+  @keyframes pulse {
+    0%, 10%, 50%, 90%, 100% { transform: scale(1); }
+    30%, 70% { transform: scale(0.5); }
+  }
+
+  .o1, .i1 { animation-delay: 0s; }
+  .o2, .i2 { animation-delay: 0.5s; }
+  .o3, .i3 { animation-delay: 1s; }
+  .o4, .i4 { animation-delay: 1.5s; }
+  
+  .o1 circle, .i1 circle { animation-delay: 0s; }
+  .o2 circle, .i2 circle { animation-delay: 0.5s; }
+  .o3 circle, .i3 circle { animation-delay: 1s; }
+  .o4 circle, .i4 circle { animation-delay: 1.5s; }
+
+  .o1 { animation-name: s_o1; }
+  .i1 { animation-name: s_i1; }
+  .o2 { animation-name: s_o2; }
+  .i2 { animation-name: s_i2; }
+  .o3 { animation-name: s_o3; }
+  .i3 { animation-name: s_i3; }
+  .o4 { animation-name: s_o4; }
+  .i4 { animation-name: s_i4; }
+
+  @keyframes s_o1 { 0%, 10%, 90%, 100% { transform: translate(12px, 12px); } 50% { transform: translate(24px, 16px); } }
+  @keyframes s_i1 { 0%, 10%, 90%, 100% { transform: translate(24px, 16px); } 50% { transform: translate(12px, 12px); } }
+  @keyframes s_o2 { 0%, 10%, 90%, 100% { transform: translate(36px, 12px); } 50% { transform: translate(32px, 24px); } }
+  @keyframes s_i2 { 0%, 10%, 90%, 100% { transform: translate(32px, 24px); } 50% { transform: translate(36px, 12px); } }
+  @keyframes s_o3 { 0%, 10%, 90%, 100% { transform: translate(36px, 36px); } 50% { transform: translate(24px, 32px); } }
+  @keyframes s_i3 { 0%, 10%, 90%, 100% { transform: translate(24px, 32px); } 50% { transform: translate(36px, 36px); } }
+  @keyframes s_o4 { 0%, 10%, 90%, 100% { transform: translate(12px, 36px); } 50% { transform: translate(16px, 24px); } }
+  @keyframes s_i4 { 0%, 10%, 90%, 100% { transform: translate(16px, 24px); } 50% { transform: translate(12px, 36px); } }
+</style>
+<g class="dot o1"><circle cx="0" cy="0" r="4" fill="black"/></g>
+<g class="dot i1"><circle cx="0" cy="0" r="4" fill="black"/></g>
+<g class="dot o2"><circle cx="0" cy="0" r="4" fill="black"/></g>
+<g class="dot i2"><circle cx="0" cy="0" r="4" fill="black"/></g>
+<g class="dot o3"><circle cx="0" cy="0" r="4" fill="black"/></g>
+<g class="dot i3"><circle cx="0" cy="0" r="4" fill="black"/></g>
+<g class="dot o4"><circle cx="0" cy="0" r="4" fill="black"/></g>
+<g class="dot i4"><circle cx="0" cy="0" r="4" fill="black"/></g>
+</svg>
