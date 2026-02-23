@@ -138,6 +138,39 @@
             margin-bottom: 15px;
         }
 
+        .dot {
+            fill: #FFFEFE;
+            stroke: white;
+            stroke-width: 2;
+        }
+
+        .text-layer {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%; height: 100%;
+        }
+
+        .text-path {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            margin: auto;
+            opacity: 0;
+            transition: opacity 0.8s ease, filter 0.8s ease, transform 0.8s ease;
+            filter: blur(10px);
+            transform: scale(0.9);
+        }
+
+        .text-path.active {
+            opacity: 1;
+            filter: blur(0px);
+            transform: scale(1);
+        }
+
     </style>
 </head>
 <body>
@@ -227,8 +260,13 @@
         <div class="grid" style="display: flex; justify-content: center;">
             <div class="card" style="width: 100%; max-width: 600px; padding: 60px;">
                 <span class="tag">Morphing • 3D Zoom</span>
-                <div class="preview grid-preview" style="width: 400px; height: 400px;">
-                    <img src="grid.svg" alt="Animated Grid" style="width: 100%; height: 100%;">
+                <div class="preview grid-preview" style="width: 400px; height: 400px; position: relative; overflow: hidden;">
+                    <svg width="100%" height="100%" viewBox="-300 -300 600 600" style="overflow: visible;">
+                        <g id="grid-group">
+                            <g id="dots-container"></g>
+                        </g>
+                    </svg>
+                    <div class="text-layer" id="text-container"></div>
                 </div>
                 <h3>Pvolve Dynamic Grid</h3>
                 <p class="desc">Dots transition through shapes (Square, Circle, Diamond, Cube) with a staggered 3D zoom, while text fades in sync.</p>
@@ -236,5 +274,62 @@
         </div>
     </section>
 
+    <script src="frames_data.js"></script>
+    <script>
+      const numDots = 16;
+      const dotsContainer = document.getElementById('dots-container');
+      const textContainer = document.getElementById('text-container');
+      const gridGroup = document.getElementById('grid-group');
+      
+      let dots = [];
+      let texts = [];
+      let currentIndex = 0;
+      
+      framesData.forEach((frame, index) => {
+        let newSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        newSvg.setAttribute('viewBox', frame.viewBox);
+        newSvg.setAttribute('width', '100%');
+        newSvg.setAttribute('height', '100%');
+        newSvg.classList.add('text-path');
+        if (frame.textNode) newSvg.innerHTML = frame.textNode;
+        textContainer.appendChild(newSvg);
+        texts.push(newSvg);
+      });
+
+      for(let i=0; i<numDots; i++) {
+        let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        circle.setAttribute("r", "4.726");
+        circle.classList.add("dot");
+        dotsContainer.appendChild(circle);
+        dots.push(circle);
+      }
+
+      function goToShape(index) {
+        currentIndex = index;
+        const shape = framesData[index];
+        
+        const duration = 1000;
+        const stagger = 20;
+        const hold = 2000;
+        const easing = "ease-in-out";
+        
+        dots.forEach((dot, i) => {
+          const pt = shape.points[i] || {x: 0, y: 0};
+          const delay = i * stagger;
+          dot.style.transition = `transform ${duration}ms ${easing} ${delay}ms, opacity ${duration}ms ease ${delay}ms`;
+          dot.style.transform = `translate(${pt.x}px, ${pt.y}px)`;
+        });
+
+        texts.forEach((w, i) => {
+          if(i === index) w.classList.add('active');
+          else w.classList.remove('active');
+        });
+
+        const totalTime = duration + (numDots * stagger) + hold;
+        setTimeout(() => goToShape((index + 1) % framesData.length), totalTime);
+      }
+
+      setTimeout(() => goToShape(0), 500);
+    </script>
 </body>
 </html>

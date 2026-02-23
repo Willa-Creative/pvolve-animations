@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animation Dev Tool - Frames</title>
+<style>
+  :root {
+    --bg-color: #2D2D2D;
+    --panel-bg: #1A1A1A;
+    --text-color: #FFFFFF;
+    --accent: #E5A99B;
+    --font-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  #controls {
+    width: 320px;
+    background: var(--panel-bg);
+    padding: 30px;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+    overflow-y: auto;
+    z-index: 10;
+  }
+
+  #canvas {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: radial-gradient(circle at center, #3A3A3A 0%, #2D2D2D 100%);
+  }
+
+  svg {
+    overflow: visible;
+  }
+
+  .dot {
+    fill: #FFFEFE;
+    stroke: white;
+    stroke-width: 2;
+  }
+
+  .text-layer {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; height: 100%;
+  }
+
+  .text-path {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    margin: auto;
+    opacity: 0;
+    transition: opacity 0.8s ease, filter 0.8s ease, transform 0.8s ease;
+    filter: blur(10px);
+    transform: scale(0.9);
+  }
+
+  .text-path.active {
+    opacity: 1;
+    filter: blur(0px);
+    transform: scale(1);
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 15px;
+  }
+
+  .control-group {
+    margin-bottom: 25px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #AAA;
+  }
+
+  input[type=range] {
+    width: 100%;
+    cursor: pointer;
+  }
+
+  select {
+    width: 100%;
+    padding: 8px;
+    background: #333;
+    color: white;
+    border: 1px solid #555;
+    border-radius: 4px;
+    font-family: inherit;
+  }
+
+  .val-display {
+    float: right;
+    font-weight: bold;
+    color: var(--accent);
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    background: var(--accent);
+    color: #1A1A1A;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background 0.2s;
+    margin-bottom: 10px;
+  }
+
+  button:hover {
+    background: #f5b9ab;
+  }
+  
+  .shape-btn {
+    background: #333;
+    color: white;
+    margin-bottom: 5px;
+  }
+  .shape-btn.active {
+    background: white;
+    color: black;
+  }
+</style>
+<script src="frames_data.js"></script>
+</head>
+<body>
+
+<div id="controls">
+  <h2>Animation Dev Tool</h2>
+  
+  <div class="control-group">
+    <label>Transition Duration <span id="val-duration" class="val-display">1000ms</span></label>
+    <input type="range" id="duration" min="200" max="3000" value="1000" step="100">
+  </div>
+  
+  <div class="control-group">
+    <label>Hold Duration <span id="val-hold" class="val-display">2000ms</span></label>
+    <input type="range" id="hold" min="500" max="5000" value="2000" step="100">
+  </div>
+
+  <div class="control-group">
+    <label>Stagger (Delay per dot) <span id="val-stagger" class="val-display">20ms</span></label>
+    <input type="range" id="stagger" min="0" max="100" value="20" step="1">
+  </div>
+  
+  <div class="control-group">
+    <label>Rotation per shape <span id="val-rotation" class="val-display">0deg</span></label>
+    <input type="range" id="rotation" min="0" max="360" value="0" step="15">
+  </div>
+
+  <div class="control-group">
+    <label>Easing</label>
+    <select id="easing">
+      <option value="ease">Ease</option>
+      <option value="linear">Linear</option>
+      <option value="ease-in-out">Ease In Out</option>
+      <option value="cubic-bezier(0.68, -0.55, 0.265, 1.55)">Bounce</option>
+      <option value="cubic-bezier(0.25, 1, 0.5, 1)">Decel</option>
+    </select>
+  </div>
+  
+  <div class="control-group">
+    <label>Text Fade Duration <span id="val-textFade" class="val-display">800ms</span></label>
+    <input type="range" id="textFade" min="200" max="2000" value="800" step="100">
+  </div>
+  
+  <button id="btn-play">Pause Loop</button>
+  
+  <div style="margin-top: 30px;">
+    <label>Manual Override</label>
+    <div id="manual-buttons"></div>
+  </div>
+</div>
+
+<div id="canvas">
+  <svg width="600" height="600" viewBox="-300 -300 600 600">
+    <g id="grid-group">
+        <g id="dots-container"></g>
+    </g>
+  </svg>
+  <div class="text-layer" id="text-container"></div>
+</div>
+
+<script>
+  const numDots = 16;
+  const dotsContainer = document.getElementById('dots-container');
+  const textContainer = document.getElementById('text-container');
+  const gridGroup = document.getElementById('grid-group');
+  const manualButtons = document.getElementById('manual-buttons');
+  
+  let dots = [];
+  let texts = [];
+  let currentIndex = 0;
+  let isPlaying = true;
+  let loopTimeout = null;
+  let currentRotation = 0;
+
+  // Process framesData from frames_data.js
+  framesData.forEach((frame, index) => {
+    // Handle text path by placing it in an SVG container matching the frame's viewBox
+    let newSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    newSvg.setAttribute('viewBox', frame.viewBox);
+    let vb = frame.viewBox.split(' ').map(Number);
+    newSvg.setAttribute('width', vb[2]);
+    newSvg.setAttribute('height', vb[3]);
+    newSvg.classList.add('text-path');
+    
+    // Inject path
+    if (frame.textNode) {
+        newSvg.innerHTML = frame.textNode;
+    }
+    
+    textContainer.appendChild(newSvg);
+    texts.push(newSvg);
+
+    // Create a button
+    let btn = document.createElement("button");
+    btn.className = "shape-btn";
+    btn.innerText = `Phase ${index + 1}`;
+    btn.onclick = () => {
+      isPlaying = false;
+      document.getElementById('btn-play').innerText = "Play Loop";
+      clearTimeout(loopTimeout);
+      goToShape(index);
+    };
+    manualButtons.appendChild(btn);
+  });
+
+  // Init DOM dots
+  for(let i=0; i<numDots; i++) {
+    let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    circle.setAttribute("r", "4.726");
+    circle.classList.add("dot");
+    dotsContainer.appendChild(circle);
+    dots.push(circle);
+  }
+
+  function updateDisplays() {
+    document.getElementById('val-duration').innerText = document.getElementById('duration').value + "ms";
+    document.getElementById('val-hold').innerText = document.getElementById('hold').value + "ms";
+    document.getElementById('val-stagger').innerText = document.getElementById('stagger').value + "ms";
+    document.getElementById('val-textFade').innerText = document.getElementById('textFade').value + "ms";
+    document.getElementById('val-rotation').innerText = document.getElementById('rotation').value + "deg";
+  }
+
+  ['duration', 'hold', 'stagger', 'rotation', 'textFade', 'easing'].forEach(id => {
+    document.getElementById(id).addEventListener('input', () => {
+      updateDisplays();
+      if(id === 'textFade') {
+        let fade = document.getElementById('textFade').value;
+        document.querySelectorAll('.text-path').forEach(w => {
+          w.style.transition = `opacity ${fade}ms ease, filter ${fade}ms ease, transform ${fade}ms ease`;
+        });
+      }
+    });
+  });
+
+  function goToShape(index) {
+    currentIndex = index;
+    const shape = framesData[index];
+    
+    const duration = document.getElementById('duration').value;
+    const stagger = document.getElementById('stagger').value;
+    const easing = document.getElementById('easing').value;
+    const rotStep = parseFloat(document.getElementById('rotation').value);
+    
+    currentRotation += rotStep;
+    gridGroup.style.transition = `transform ${duration}ms ${easing}`;
+    gridGroup.style.transform = `rotate(${currentRotation}deg)`;
+
+    // Calculate a consistent mapping. 
+    // To prevent lines crossing drastically, we can map closest points or just index based
+    // For simplicity, we just assign index to index.
+    dots.forEach((dot, i) => {
+      const pt = shape.points[i] || {x: 0, y: 0};
+      const delay = i * stagger;
+      
+      dot.style.transition = `transform ${duration}ms ${easing} ${delay}ms, opacity ${duration}ms ease ${delay}ms`;
+      dot.style.transform = `translate(${pt.x}px, ${pt.y}px)`;
+    });
+
+    texts.forEach((w, i) => {
+      if(i === index) {
+        w.classList.add('active');
+      } else {
+        w.classList.remove('active');
+      }
+    });
+    
+    document.querySelectorAll('.shape-btn').forEach((b, i) => {
+      if(i === index) b.classList.add('active');
+      else b.classList.remove('active');
+    });
+
+    if(isPlaying) {
+      const hold = parseInt(document.getElementById('hold').value);
+      const totalTime = parseInt(duration) + (numDots * stagger) + hold;
+      loopTimeout = setTimeout(() => {
+        goToShape((index + 1) % framesData.length);
+      }, totalTime);
+    }
+  }
+
+  document.getElementById('btn-play').addEventListener('click', () => {
+    isPlaying = !isPlaying;
+    document.getElementById('btn-play').innerText = isPlaying ? "Pause Loop" : "Play Loop";
+    if(isPlaying) {
+      goToShape((currentIndex + 1) % framesData.length);
+    } else {
+      clearTimeout(loopTimeout);
+    }
+  });
+
+  // Initial setup
+  updateDisplays();
+  
+  // Wait a small bit before starting
+  setTimeout(() => goToShape(0), 500);
+
+</script>
+</body>
+</html>
