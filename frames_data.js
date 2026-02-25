@@ -285,7 +285,7 @@ const framesData = [
   },
   {
     "name": "5.svg",
-    "viewBox": "0 0 272 288",
+    "viewBox": "0 0 426 452",
     "points": [
       {
         "x": -155.64000000000001,

@@ -1,0 +1,19 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .dot {
+    animation: multiply 3s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite alternate;
+  }
+  .top { --dx: 0px; --dy: 10px; }
+  .right { --dx: -10px; --dy: 0px; }
+  .left { --dx: 10px; --dy: 0px; }
+  .bottom { --dx: 0px; --dy: -10px; }
+  @keyframes multiply {
+    0%, 15% { transform: translate(var(--dx), var(--dy)); }
+    85%, 100% { transform: translate(0, 0); }
+  }
+</style>
+<circle class="dot top" cx="24" cy="14" r="4" fill="black"/>
+<circle class="dot right" cx="34" cy="24" r="4" fill="black"/>
+<circle class="dot left" cx="14" cy="24" r="4" fill="black"/>
+<circle class="dot bottom" cx="24" cy="34" r="4" fill="black"/>
+</svg>

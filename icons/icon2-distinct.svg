@@ -1,0 +1,34 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .dot {
+    animation: 3s cubic-bezier(0.45, 0, 0.15, 1) infinite alternate;
+  }
+  .tl { animation-name: tl-anim; }
+  .tr { animation-name: tr-anim; }
+  .bl { animation-name: bl-anim; }
+  .br { animation-name: br-anim; }
+  
+  @keyframes tl-anim {
+    0%, 15% { transform: translate(6px, 10px); }
+    40%, 60% { transform: translate(-8px, 10px); }
+    85%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes tr-anim {
+    0%, 15% { transform: translate(-6px, 10px); }
+    40%, 60% { transform: translate(8px, 10px); }
+    85%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes bl-anim {
+    0%, 15% { transform: translate(14px, 0); }
+    40%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes br-anim {
+    0%, 15% { transform: translate(-14px, 0); }
+    40%, 100% { transform: translate(0, 0); }
+  }
+</style>
+<circle class="dot tr" cx="30" cy="19" r="4" fill="black"/>
+<circle class="dot tl" cx="18" cy="19" r="4" fill="black"/>
+<circle class="dot br" cx="38" cy="29" r="4" fill="black"/>
+<circle class="dot bl" cx="10" cy="29" r="4" fill="black"/>
+</svg>

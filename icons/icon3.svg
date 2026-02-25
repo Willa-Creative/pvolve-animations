@@ -1,0 +1,21 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .rotate-group {
+    transform-origin: 24px 24px;
+    animation: stepRotate 4s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+  }
+  @keyframes stepRotate {
+    0%, 15% { transform: rotate(0deg); }
+    25%, 40% { transform: rotate(90deg); }
+    50%, 65% { transform: rotate(180deg); }
+    75%, 90% { transform: rotate(270deg); }
+    100% { transform: rotate(360deg); }
+  }
+</style>
+<g class="rotate-group">
+<circle cx="24" cy="15" r="4" fill="black"/>
+<circle cx="24" cy="26" r="4" fill="black"/>
+<circle cx="34" cy="33" r="4" fill="black"/>
+<circle cx="14" cy="33" r="4" fill="black"/>
+</g>
+</svg>

@@ -1,0 +1,169 @@
+<svg width="426" height="452" viewBox="0 0 426 452" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .dot {
+    fill: #FFFEFE;
+    stroke: white;
+    stroke-width: 2;
+  }
+  .dot-0 { animation: anim-0 6s cubic-bezier(0.5, 0, 0.1, 1) 0s infinite; }
+  @keyframes anim-0 {
+    0.00%, 16.00% { transform: translate(116.13px, 129.13px); r: 4.73; }
+    20.00%, 36.00% { transform: translate(185.08px, 129.13px); r: 4.73; }
+    40.00%, 56.00% { transform: translate(214.25px, 121.02px); r: 4.73; }
+    60.00%, 76.00% { transform: translate(91.00px, 87.72px); r: 4.73; }
+    80.00%, 96.00% { transform: translate(21.00px, 9.00px); r: 4.73; }
+    100.00%, 116.00% { transform: translate(116.13px, 129.13px); r: 4.73; }
+  }
+  .dot-1 { animation: anim-1 6s cubic-bezier(0.5, 0, 0.1, 1) 0.02s infinite; }
+  @keyframes anim-1 {
+    0.00%, 16.00% { transform: translate(164.33px, 129.13px); r: 4.73; }
+    20.00%, 36.00% { transform: translate(243.30px, 129.13px); r: 4.73; }
+    40.00%, 56.00% { transform: translate(173.12px, 128.76px); r: 4.73; }
+    60.00%, 76.00% { transform: translate(206.45px, 87.72px); r: 4.73; }
+    80.00%, 96.00% { transform: translate(202.00px, 9.00px); r: 4.73; }
+    100.00%, 116.00% { transform: translate(164.33px, 129.13px); r: 4.73; }
+  }
+  .dot-2 { animation: anim-2 6s cubic-bezier(0.5, 0, 0.1, 1) 0.04s infinite; }
+  @keyframes anim-2 {
+    0.00%, 16.00% { transform: translate(213.00px, 129.13px); r: 4.73; }
+    20.00%, 36.00% { transform: translate(158.84px, 165.40px); r: 4.73; }
+    40.00%, 56.00% { transform: translate(254.59px, 129.47px); r: 4.73; }
+    60.00%, 76.00% { transform: translate(329.45px, 87.72px); r: 4.73; }
+    80.00%, 96.00% { transform: translate(395.50px, 9.00px); r: 4.73; }
+    100.00%, 116.00% { transform: translate(213.00px, 129.13px); r: 4.73; }
+  }
+  .dot-3 { animation: anim-3 6s cubic-bezier(0.5, 0, 0.1, 1) 0.06s infinite; }
+  @keyframes anim-3 {
+    0.00%, 16.00% { transform: translate(261.67px, 129.13px); r: 4.73; }
+    20.00%, 36.00% { transform: translate(213.72px, 165.40px); r: 4.73; }
+    40.00%, 56.00% { transform: translate(138.44px, 151.60px); r: 4.73; }
+    60.00%, 76.00% { transform: translate(123.00px, 120.72px); r: 4.73; }
+    80.00%, 96.00% { transform: translate(71.00px, 61.00px); r: 4.73; }
+    100.00%, 116.00% { transform: translate(261.67px, 129.13px); r: 4.73; }
+  }
+  .dot-4 { animation: anim-4 6s cubic-bezier(0.5, 0, 0.1, 1) 0.08s infinite; }
+  @keyframes anim-4 {
+    0.00%, 16.00% { transform: translate(309.87px, 129.13px); r: 4.73; }
+    20.00%, 36.00% { transform: translate(266.21px, 165.40px); r: 4.73; }
+    40.00%, 56.00% { transform: translate(288.85px, 152.89px); r: 4.73; }
+    60.00%, 76.00% { transform: translate(206.45px, 120.72px); r: 4.73; }
+    80.00%, 96.00% { transform: translate(202.00px, 61.00px); r: 4.73; }
+    100.00%, 116.00% { transform: translate(309.87px, 129.13px); r: 4.73; }
+  }
+  .dot-5 { animation: anim-5 6s cubic-bezier(0.5, 0, 0.1, 1) 0.1s infinite; }
+  @keyframes anim-5 {
+    0.00%, 16.00% { transform: translate(116.13px, 177.80px); r: 4.73; }
+    20.00%, 36.00% { transform: translate(116.85px, 200.71px); r: 4.73; }
+    40.00%, 56.00% { transform: translate(115.15px, 185.90px); r: 4.73; }
+    60.00%, 76.00% { transform: translate(297.45px, 120.72px); r: 4.73; }
+    80.00%, 96.00% { transform: translate(345.00px, 61.00px); r: 4.73; }
+    100.00%, 116.00% { transform: translate(116.13px, 177.80px); r: 4.73; }
+  }
+  .dot-6 { animation: anim-6 6s cubic-bezier(0.5, 0, 0.1, 1) 0.12s infinite; }
+  @keyframes anim-6 {
+    0.00%, 16.00% { transform: translate(308.44px, 177.80px); r: 4.73; }
+    20.00%, 36.00% { transform: translate(309.15px, 200.71px); r: 4.73; }
+    40.00%, 56.00% { transform: translate(311.58px, 187.67px); r: 4.73; }
+    60.00%, 76.00% { transform: translate(83.00px, 225.72px); r: 4.73; }
+    80.00%, 96.00% { transform: translate(9.00px, 226.00px); r: 4.73; }
+    100.00%, 116.00% { transform: translate(308.44px, 177.80px); r: 4.73; }
+  }
+  .dot-7 { animation: anim-7 6s cubic-bezier(0.5, 0, 0.1, 1) 0.14s infinite; }
+  @keyframes anim-7 {
+    0.00%, 16.00% { transform: translate(116.13px, 226.48px); r: 4.73; }
+    20.00%, 36.00% { transform: translate(158.84px, 226.00px); r: 4.73; }
+    40.00%, 56.00% { transform: translate(106.83px, 226.35px); r: 4.73; }
+    60.00%, 76.00% { transform: translate(116.00px, 225.72px); r: 4.73; }
+    80.00%, 96.00% { transform: translate(60.50px, 226.00px); r: 4.73; }
+    100.00%, 116.00% { transform: translate(116.13px, 226.48px); r: 4.73; }
+  }
+  .dot-8 { animation: anim-8 6s cubic-bezier(0.5, 0, 0.1, 1) 0.16s infinite; }
+  @keyframes anim-8 {
+    0.00%, 16.00% { transform: translate(308.44px, 226.48px); r: 4.73; }
+    20.00%, 36.00% { transform: translate(266.21px, 226.48px); r: 4.73; }
+    40.00%, 56.00% { transform: translate(319.17px, 227.19px); r: 4.73; }
+    60.00%, 76.00% { transform: translate(309.00px, 225.72px); r: 4.73; }
+    80.00%, 96.00% { transform: translate(363.00px, 226.00px); r: 4.73; }
+    100.00%, 116.00% { transform: translate(308.44px, 226.48px); r: 4.73; }
+  }
+  .dot-9 { animation: anim-9 6s cubic-bezier(0.5, 0, 0.1, 1) 0.18s infinite; }
+  @keyframes anim-9 {
+    0.00%, 16.00% { transform: translate(116.13px, 275.15px); r: 4.73; }
+    20.00%, 36.00% { transform: translate(116.85px, 253.20px); r: 4.73; }
+    40.00%, 56.00% { transform: translate(114.81px, 267.66px); r: 4.73; }
+    60.00%, 76.00% { transform: translate(343.00px, 225.72px); r: 4.73; }
+    80.00%, 96.00% { transform: translate(417.00px, 226.00px); r: 4.73; }
+    100.00%, 116.00% { transform: translate(116.13px, 275.15px); r: 4.73; }
+  }
+  .dot-10 { animation: anim-10 6s cubic-bezier(0.5, 0, 0.1, 1) 0.2s infinite; }
+  @keyframes anim-10 {
+    0.00%, 16.00% { transform: translate(308.44px, 275.15px); r: 4.73; }
+    20.00%, 36.00% { transform: translate(309.15px, 253.20px); r: 4.73; }
+    40.00%, 56.00% { transform: translate(311.13px, 267.81px); r: 4.73; }
+    60.00%, 76.00% { transform: translate(123.00px, 331.27px); r: 4.73; }
+    80.00%, 96.00% { transform: translate(71.00px, 391.00px); r: 4.73; }
+    100.00%, 116.00% { transform: translate(308.44px, 275.15px); r: 4.73; }
+  }
+  .dot-11 { animation: anim-11 6s cubic-bezier(0.5, 0, 0.1, 1) 0.22s infinite; }
+  @keyframes anim-11 {
+    0.00%, 16.00% { transform: translate(116.13px, 322.87px); r: 4.73; }
+    20.00%, 36.00% { transform: translate(158.84px, 286.60px); r: 4.73; }
+    40.00%, 56.00% { transform: translate(137.63px, 301.98px); r: 4.73; }
+    60.00%, 76.00% { transform: translate(206.45px, 331.27px); r: 4.73; }
+    80.00%, 96.00% { transform: translate(202.00px, 391.00px); r: 4.73; }
+    100.00%, 116.00% { transform: translate(116.13px, 322.87px); r: 4.73; }
+  }
+  .dot-12 { animation: anim-12 6s cubic-bezier(0.5, 0, 0.1, 1) 0.24s infinite; }
+  @keyframes anim-12 {
+    0.00%, 16.00% { transform: translate(163.85px, 322.87px); r: 4.73; }
+    20.00%, 36.00% { transform: translate(212.76px, 286.60px); r: 4.73; }
+    40.00%, 56.00% { transform: translate(288.08px, 302.27px); r: 4.73; }
+    60.00%, 76.00% { transform: translate(297.45px, 331.27px); r: 4.73; }
+    80.00%, 96.00% { transform: translate(345.00px, 391.00px); r: 4.73; }
+    100.00%, 116.00% { transform: translate(163.85px, 322.87px); r: 4.73; }
+  }
+  .dot-13 { animation: anim-13 6s cubic-bezier(0.5, 0, 0.1, 1) 0.26s infinite; }
+  @keyframes anim-13 {
+    0.00%, 16.00% { transform: translate(212.05px, 322.87px); r: 4.73; }
+    20.00%, 36.00% { transform: translate(266.21px, 286.60px); r: 4.73; }
+    40.00%, 56.00% { transform: translate(171.98px, 325.15px); r: 4.73; }
+    60.00%, 76.00% { transform: translate(91.00px, 364.27px); r: 4.73; }
+    80.00%, 96.00% { transform: translate(21.00px, 443.00px); r: 4.73; }
+    100.00%, 116.00% { transform: translate(212.05px, 322.87px); r: 4.73; }
+  }
+  .dot-14 { animation: anim-14 6s cubic-bezier(0.5, 0, 0.1, 1) 0.28s infinite; }
+  @keyframes anim-14 {
+    0.00%, 16.00% { transform: translate(260.24px, 322.87px); r: 4.73; }
+    20.00%, 36.00% { transform: translate(185.08px, 322.87px); r: 4.73; }
+    40.00%, 56.00% { transform: translate(253.66px, 325.30px); r: 4.73; }
+    60.00%, 76.00% { transform: translate(206.45px, 364.27px); r: 4.73; }
+    80.00%, 96.00% { transform: translate(202.00px, 443.00px); r: 4.73; }
+    100.00%, 116.00% { transform: translate(260.24px, 322.87px); r: 4.73; }
+  }
+  .dot-15 { animation: anim-15 6s cubic-bezier(0.5, 0, 0.1, 1) 0.3s infinite; }
+  @keyframes anim-15 {
+    0.00%, 16.00% { transform: translate(308.44px, 322.87px); r: 4.73; }
+    20.00%, 36.00% { transform: translate(243.30px, 322.87px); r: 4.73; }
+    40.00%, 56.00% { transform: translate(207.58px, 330.98px); r: 4.73; }
+    60.00%, 76.00% { transform: translate(329.45px, 364.27px); r: 4.73; }
+    80.00%, 96.00% { transform: translate(395.50px, 443.00px); r: 4.73; }
+    100.00%, 116.00% { transform: translate(308.44px, 322.87px); r: 4.73; }
+  }
+</style>
+  <circle class="dot dot-0" cx="0" cy="0" r="4.726" />
+  <circle class="dot dot-1" cx="0" cy="0" r="4.726" />
+  <circle class="dot dot-2" cx="0" cy="0" r="4.726" />
+  <circle class="dot dot-3" cx="0" cy="0" r="4.726" />
+  <circle class="dot dot-4" cx="0" cy="0" r="4.726" />
+  <circle class="dot dot-5" cx="0" cy="0" r="4.726" />
+  <circle class="dot dot-6" cx="0" cy="0" r="4.726" />
+  <circle class="dot dot-7" cx="0" cy="0" r="4.726" />
+  <circle class="dot dot-8" cx="0" cy="0" r="4.726" />
+  <circle class="dot dot-9" cx="0" cy="0" r="4.726" />
+  <circle class="dot dot-10" cx="0" cy="0" r="4.726" />
+  <circle class="dot dot-11" cx="0" cy="0" r="4.726" />
+  <circle class="dot dot-12" cx="0" cy="0" r="4.726" />
+  <circle class="dot dot-13" cx="0" cy="0" r="4.726" />
+  <circle class="dot dot-14" cx="0" cy="0" r="4.726" />
+  <circle class="dot dot-15" cx="0" cy="0" r="4.726" />
+</svg>

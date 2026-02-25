@@ -1,0 +1,20 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+  circle {
+    animation: mul 3s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite alternate;
+  }
+  .dot-0 { --dx: -6px; --dy: 5px; }
+  .dot-1 { --dx: 6px; --dy: 5px; }
+  .dot-2 { --dx: -14px; --dy: -5px; }
+  .dot-3 { --dx: 14px; --dy: -5px; }
+  @keyframes mul {
+    0%, 20% { transform: translate(var(--dx), var(--dy)); opacity: 0; }
+    30% { opacity: 1; }
+    80%, 100% { transform: translate(0, 0); opacity: 1; }
+  }
+</style>
+  <circle class="dot-0" cx="30" cy="19" r="4" fill="black"/>
+  <circle class="dot-1" cx="18" cy="19" r="4" fill="black"/>
+  <circle class="dot-2" cx="38" cy="29" r="4" fill="black"/>
+  <circle class="dot-3" cx="10" cy="29" r="4" fill="black"/>
+</svg>

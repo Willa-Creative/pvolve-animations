@@ -1,0 +1,18 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .rotate-group {
+    transform-origin: 24px 24px;
+    animation: smoothRotate 4s cubic-bezier(0.45, 0, 0.15, 1) infinite alternate;
+  }
+  @keyframes smoothRotate {
+    0%, 15% { transform: rotate(0deg); }
+    85%, 100% { transform: rotate(180deg); }
+  }
+</style>
+<g class="rotate-group">
+<circle cx="24" cy="14" r="4" fill="black"/>
+<circle cx="34" cy="24" r="4" fill="black"/>
+<circle cx="14" cy="24" r="4" fill="black"/>
+<circle cx="24" cy="34" r="4" fill="black"/>
+</g>
+</svg>

@@ -312,10 +312,17 @@
     });
 
     texts.forEach((w, i) => {
-      if(i === index) {
+      if (index === 4 && i === 3) {
         w.classList.add('active');
+        w.style.transform = 'scale(1.6)';
+      } else if (index === 4 && i === 4) {
+        w.classList.remove('active');
+      } else if (i === index) {
+        w.classList.add('active');
+        w.style.transform = '';
       } else {
         w.classList.remove('active');
+        w.style.transform = '';
       }
     });
     

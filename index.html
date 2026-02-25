@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pvolve Animation Prototypes</title>
+    <title>Pvolve Animations</title>
     <style>
         :root {
             /* Pvolve-inspired palette: earthy, calm, sophisticated */
@@ -95,22 +95,67 @@
             border: 1px solid rgba(0,0,0,0.05);
         }
 
-        /* The grid SVGs are large, so we scale them down for preview */
         .preview img {
             max-width: 100%;
             max-height: 100%;
         }
 
-        .grid-preview {
-            width: 250px;
-            height: 250px;
-            border-radius: 16px;
-            background: #2D2D2D; /* High contrast background for the white grid strokes */
+        /* Large Grid Preview Styling */
+        .large-preview-container {
+            width: 100%;
+            max-width: 1200px;
+            height: 600px;
+            background: #2D2D2D;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 60px;
         }
-        
-        .grid-preview img {
-            width: 80%;
-            height: 80%;
+
+        .animation-wrapper {
+            width: 800px;
+            height: 800px;
+            transform: scale(0.9); /* Fill more of the container */
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dot {
+            fill: #FFFEFE;
+            stroke: white;
+            stroke-width: 2;
+            transition: transform 1000ms ease-in-out, r 1000ms ease-in-out, opacity 1000ms ease;
+        }
+
+        .text-container {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .text-path {
+            position: absolute;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.6s ease, transform 0.8s ease;
+            pointer-events: none;
+        }
+
+        .text-path.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .text-path.scaled {
+            transform: scale(1.6);
         }
 
         h3 {
@@ -138,198 +183,266 @@
             margin-bottom: 15px;
         }
 
-        .dot {
-            fill: #FFFEFE;
-            stroke: white;
-            stroke-width: 2;
-        }
-
-        .text-layer {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%; height: 100%;
-        }
-
-        .text-path {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            margin: auto;
-            opacity: 0;
-            transition: opacity 0.8s ease, filter 0.8s ease, transform 0.8s ease;
-            filter: blur(10px);
-            transform: scale(0.9);
-        }
-
-        .text-path.active {
-            opacity: 1;
-            filter: blur(0px);
-            transform: scale(1);
-        }
-
     </style>
 </head>
 <body>
 
     <header>
         <h1>Pvolve Animations</h1>
-        <p class="subtitle">Exploring fluid, functional movement for brand assets</p>
+        <p class="subtitle">Clean, functional movement for brand assets</p>
     </header>
 
     <section>
-        <h2>Icon Variants</h2>
+        <h2>Icon Animation</h2>
         <div class="grid">
             <div class="card">
-                <span class="tag">Original</span>
-                <div class="preview">
-                    <img src="icon.svg" alt="Original Icon">
-                </div>
-                <h3>Static Icon</h3>
-                <p class="desc">The un-animated base vector.</p>
-            </div>
-
-            <div class="card">
-                <span class="tag">V1 • Rotate</span>
-                <div class="preview">
-                    <img src="icon-animated.svg" alt="Animated Icon">
-                </div>
-                <h3>Mechanical Rotation</h3>
-                <p class="desc">Rigid 90-degree step rotations.</p>
-            </div>
-
-            <div class="card">
-                <span class="tag">V2 • Slide</span>
-                <div class="preview">
-                    <img src="icon-animated-smooth.svg" alt="Animated Icon">
-                </div>
-                <h3>Smooth Slide</h3>
-                <p class="desc">Linear movement with collision avoidance.</p>
-            </div>
-
-            <div class="card">
-                <span class="tag">V3 • Fade</span>
-                <div class="preview">
-                    <img src="icon-variant-1-opacity-crossfade.svg" alt="Animated Icon">
-                </div>
-                <h3>Subtle Crossfade</h3>
-                <p class="desc">Gentle pulsing and fading of groups.</p>
-            </div>
-
-            <div class="card">
-                <span class="tag">V4 • Wave</span>
-                <div class="preview">
-                    <img src="icon-variant-2-staggered-wave.svg" alt="Animated Icon">
-                </div>
-                <h3>Staggered Wave</h3>
-                <p class="desc">Pairs swapping in a ripple sequence.</p>
-            </div>
-
-            <div class="card">
-                <span class="tag">V5 • Arc</span>
-                <div class="preview">
-                    <img src="icon-variant-3-curved-swap.svg" alt="Animated Icon">
-                </div>
-                <h3>Curved Orbit</h3>
-                <p class="desc">Pairs swinging around each other.</p>
-            </div>
-
-            <div class="card">
-                <span class="tag">V6 • Flow</span>
-                <div class="preview">
-                    <img src="icon-variant-4-continuous-flow.svg" alt="Animated Icon">
-                </div>
-                <h3>Continuous Flow</h3>
-                <p class="desc">Endless looping through all 8 positions.</p>
-            </div>
-
-            <div class="card">
-                <span class="tag">V7 • Snap</span>
+                <span class="tag">Smooth Swipe</span>
                 <div class="preview">
                     <img src="icon-variant-5-elastic-snap.svg" alt="Animated Icon">
                 </div>
-                <h3>Elastic Snap</h3>
-                <p class="desc">Spring-loaded dynamic jumps.</p>
+                <h3>Brand Icon</h3>
+                <p class="desc">Smooth, linear positional shifts (Swipe).</p>
             </div>
         </div>
+    </section>
+
     <section>
-        <h2>Grid Animations</h2>
-        <div class="grid" style="display: flex; justify-content: center;">
-            <div class="card" style="width: 100%; max-width: 600px; padding: 60px;">
-                <span class="tag">Morphing • 3D Zoom</span>
-                <div class="preview grid-preview" style="width: 400px; height: 400px; position: relative; overflow: hidden;">
-                    <svg width="100%" height="100%" viewBox="-300 -300 600 600" style="overflow: visible;">
-                        <g id="grid-group">
-                            <g id="dots-container"></g>
-                        </g>
+        <h2>Hero Grid Animation: Seamless Loop</h2>
+        <div class="large-preview-container" id="main-anim">
+            <div class="animation-wrapper">
+                <svg width="600" height="600" viewBox="-300 -300 600 600" style="overflow: visible; position: absolute;">
+                    <g class="dots-container"></g>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Grid Motion Variations</h2>
+        <div class="grid">
+            <div class="card">
+                <span class="tag">Variant 1: Snappy Stagger</span>
+                <div class="preview" id="variant-1">
+                    <svg width="150" height="150" viewBox="-150 -150 300 300" style="overflow: visible;">
+                        <g class="dots-container"></g>
                     </svg>
-                    <div class="text-layer" id="text-container"></div>
                 </div>
-                <h3>Pvolve Dynamic Grid</h3>
-                <p class="desc">Dots transition through shapes (Square, Circle, Diamond, Cube) with a staggered 3D zoom, while text fades in sync.</p>
+                <h3>Snappy</h3>
+                <p class="desc">Fast transitions with a steep cubic-bezier ease.</p>
+            </div>
+            <div class="card">
+                <span class="tag">Variant 2: Elastic Bounce</span>
+                <div class="preview" id="variant-2">
+                    <svg width="150" height="150" viewBox="-150 -150 300 300" style="overflow: visible;">
+                        <g class="dots-container"></g>
+                    </svg>
+                </div>
+                <h3>Bouncy</h3>
+                <p class="desc">Added elastic feel with slight overshoot.</p>
+            </div>
+            <div class="card">
+                <span class="tag">Variant 3: Fluid Flow</span>
+                <div class="preview" id="variant-3">
+                    <svg width="150" height="150" viewBox="-150 -150 300 300" style="overflow: visible;">
+                        <g class="dots-container"></g>
+                    </svg>
+                </div>
+                <h3>Fluid</h3>
+                <p class="desc">Soft, continuous movement with low stagger.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Exportable SVG Variants (CSS-only)</h2>
+        <div class="grid">
+            <div class="card">
+                <span class="tag">CSS Snappy</span>
+                <div class="preview">
+                    <img src="grid-variant-snappy.svg" alt="Snappy SVG">
+                </div>
+                <h3>SVG Snappy</h3>
+                <p class="desc">Pure CSS animation inside SVG.</p>
+            </div>
+            <div class="card">
+                <span class="tag">CSS Bouncy</span>
+                <div class="preview">
+                    <img src="grid-variant-bouncy.svg" alt="Bouncy SVG">
+                </div>
+                <h3>SVG Bouncy</h3>
+                <p class="desc">Pure CSS animation with elastic easing.</p>
+            </div>
+            <div class="card">
+                <span class="tag">CSS Fluid</span>
+                <div class="preview">
+                    <img src="grid-variant-fluid.svg" alt="Fluid SVG">
+                </div>
+                <h3>SVG Fluid</h3>
+                <p class="desc">Pure CSS animation with soft flow.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Intentional Shapes - Distinct Motions</h2>
+        <div class="grid">
+            <div class="card">
+                <span class="tag">Shape 1</span>
+                <div class="preview">
+                    <img src="icons/icon1-smooth.svg" alt="Animated Icon 1">
+                </div>
+                <h3>T-Shape</h3>
+                <p class="desc">Smooth slide and swipe motion to form the base.</p>
+            </div>
+            <div class="card">
+                <span class="tag">Shape 2</span>
+                <div class="preview">
+                    <img src="icons/icon2-distinct.svg" alt="Animated Icon 2">
+                </div>
+                <h3>Trapezoid</h3>
+                <p class="desc">Start as one, split out to a wide base, and then rise up to form the shape.</p>
+            </div>
+            <div class="card">
+                <span class="tag">Shape 3</span>
+                <div class="preview">
+                    <img src="icons/icon3-distinct.svg" alt="Animated Icon 3">
+                </div>
+                <h3>Y-Shape</h3>
+                <p class="desc">Smooth rotation around its center dot.</p>
+            </div>
+            <div class="card">
+                <span class="tag">Shape 4</span>
+                <div class="preview">
+                    <img src="icons/icon4-distinct.svg" alt="Animated Icon 4">
+                </div>
+                <h3>Diamond</h3>
+                <p class="desc">Multiply out from the center dot.</p>
             </div>
         </div>
     </section>
 
     <script src="frames_data.js"></script>
     <script>
-      const numDots = 16;
-      const dotsContainer = document.getElementById('dots-container');
-      const textContainer = document.getElementById('text-container');
-      const gridGroup = document.getElementById('grid-group');
-      
-      let dots = [];
-      let texts = [];
-      let currentIndex = 0;
-      
-      framesData.forEach((frame, index) => {
-        let newSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-        newSvg.setAttribute('viewBox', frame.viewBox);
-        newSvg.setAttribute('width', '100%');
-        newSvg.setAttribute('height', '100%');
-        newSvg.classList.add('text-path');
-        if (frame.textNode) newSvg.innerHTML = frame.textNode;
-        textContainer.appendChild(newSvg);
-        texts.push(newSvg);
+      function getDistance(p1, p2) {
+          return Math.sqrt(Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2));
+      }
+
+      function initGridAnimation(containerId, options = {}) {
+          const container = document.getElementById(containerId);
+          const dotsContainer = container.querySelector('.dots-container');
+          
+          const numDots = 16;
+          const duration = options.duration || 800;
+          const hold = options.hold || 1500;
+          const stagger = options.stagger === undefined ? 25 : options.stagger;
+          const easing = options.easing || "cubic-bezier(0.4, 0, 0.2, 1)";
+          const noGrowth = options.noGrowth !== undefined ? options.noGrowth : true;
+          const dotRadius = options.dotRadius || 4.726;
+
+          let dots = [];
+          let currentPositions = framesData[0].points.map(p => ({ x: p.x, y: p.y }));
+          
+          for(let i=0; i<numDots; i++) {
+            let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            circle.setAttribute("r", dotRadius);
+            circle.classList.add("dot");
+            dotsContainer.appendChild(circle);
+            dots.push(circle);
+          }
+
+          function goToShape(index) {
+            const shape = framesData[index];
+            
+            let availableTargets = shape.points.map(p => ({ x: p.x, y: p.y }));
+            let finalAssignments = new Array(dots.length);
+            let unassignedTargets = [...availableTargets];
+            
+            for (let i = 0; i < dots.length; i++) {
+                let closestDist = Infinity;
+                let closestIdx = -1;
+                for (let j = 0; j < unassignedTargets.length; j++) {
+                    let dist = getDistance(currentPositions[i], unassignedTargets[j]);
+                    if (dist < closestDist) {
+                        closestDist = dist;
+                        closestIdx = j;
+                    }
+                }
+                finalAssignments[i] = unassignedTargets.splice(closestIdx, 1)[0];
+            }
+
+            let improved = true;
+            while (improved) {
+                improved = false;
+                for (let i = 0; i < dots.length; i++) {
+                    for (let j = i + 1; j < dots.length; j++) {
+                        let p1 = currentPositions[i];
+                        let t1 = finalAssignments[i];
+                        let p2 = currentPositions[j];
+                        let t2 = finalAssignments[j];
+                        
+                        let currentDist = getDistance(p1, t1) + getDistance(p2, t2);
+                        let swappedDist = getDistance(p1, t2) + getDistance(p2, t1);
+                        
+                        if (swappedDist < currentDist - 0.001) {
+                            finalAssignments[i] = t2;
+                            finalAssignments[j] = t1;
+                            improved = true;
+                        }
+                    }
+                }
+            }
+            
+            dots.forEach((dot, i) => {
+                let target = finalAssignments[i] || {x: 0, y: 0};
+                currentPositions[i] = { x: target.x, y: target.y };
+                
+                const delay = i * stagger;
+                const r = (!noGrowth && index === 4) ? (dotRadius * 1.4) : dotRadius;
+                
+                dot.style.transition = `transform ${duration}ms ${easing} ${delay}ms, r ${duration}ms ${easing} ${delay}ms, opacity ${duration}ms ease ${delay}ms`;
+                dot.setAttribute("r", r);
+                dot.style.transform = `translate(${target.x}px, ${target.y}px)`;
+            });
+
+            const totalTime = duration + (numDots * stagger) + hold;
+            setTimeout(() => goToShape((index + 1) % framesData.length), totalTime);
+          }
+
+          setTimeout(() => goToShape(0), 500);
+      }
+
+      // Initialize all variations
+      initGridAnimation('main-anim', { 
+        duration: 700, 
+        hold: 1200, 
+        stagger: 20, 
+        easing: 'cubic-bezier(0.5, 0, 0.1, 1)' 
       });
 
-      for(let i=0; i<numDots; i++) {
-        let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-        circle.setAttribute("r", "4.726");
-        circle.classList.add("dot");
-        dotsContainer.appendChild(circle);
-        dots.push(circle);
-      }
+      initGridAnimation('variant-1', { 
+        duration: 500, 
+        hold: 1000, 
+        stagger: 30, 
+        easing: 'cubic-bezier(0.34, 1.56, 0.64, 1)', // Snappy with overshoot
+        dotRadius: 3
+      });
 
-      function goToShape(index) {
-        currentIndex = index;
-        const shape = framesData[index];
-        
-        const duration = 1000;
-        const stagger = 20;
-        const hold = 2000;
-        const easing = "ease-in-out";
-        
-        dots.forEach((dot, i) => {
-          const pt = shape.points[i] || {x: 0, y: 0};
-          const delay = i * stagger;
-          dot.style.transition = `transform ${duration}ms ${easing} ${delay}ms, opacity ${duration}ms ease ${delay}ms`;
-          dot.style.transform = `translate(${pt.x}px, ${pt.y}px)`;
-        });
+      initGridAnimation('variant-2', { 
+        duration: 800, 
+        hold: 1000, 
+        stagger: 40, 
+        easing: 'cubic-bezier(0.68, -0.6, 0.32, 1.6)', // Bouncy elastic
+        dotRadius: 3
+      });
 
-        texts.forEach((w, i) => {
-          if(i === index) w.classList.add('active');
-          else w.classList.remove('active');
-        });
-
-        const totalTime = duration + (numDots * stagger) + hold;
-        setTimeout(() => goToShape((index + 1) % framesData.length), totalTime);
-      }
-
-      setTimeout(() => goToShape(0), 500);
+      initGridAnimation('variant-3', { 
+        duration: 1200, 
+        hold: 800, 
+        stagger: 10, 
+        easing: 'cubic-bezier(0.45, 0, 0.55, 1)', // Fluid
+        dotRadius: 3
+      });
     </script>
+
 </body>
 </html>
