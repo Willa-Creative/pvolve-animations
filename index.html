@@ -95,6 +95,11 @@
             border: 1px solid rgba(0,0,0,0.05);
         }
 
+        .preview.dark {
+            background: #2D2D2D;
+            border: none;
+        }
+
         .preview img {
             max-width: 100%;
             max-height: 100%;
@@ -222,7 +227,7 @@
         <div class="grid">
             <div class="card">
                 <span class="tag">Variant 1: Snappy Stagger</span>
-                <div class="preview" id="variant-1">
+                <div class="preview dark" id="variant-1">
                     <svg width="150" height="150" viewBox="-150 -150 300 300" style="overflow: visible;">
                         <g class="dots-container"></g>
                     </svg>
@@ -232,7 +237,7 @@
             </div>
             <div class="card">
                 <span class="tag">Variant 2: Elastic Bounce</span>
-                <div class="preview" id="variant-2">
+                <div class="preview dark" id="variant-2">
                     <svg width="150" height="150" viewBox="-150 -150 300 300" style="overflow: visible;">
                         <g class="dots-container"></g>
                     </svg>
@@ -242,7 +247,7 @@
             </div>
             <div class="card">
                 <span class="tag">Variant 3: Fluid Flow</span>
-                <div class="preview" id="variant-3">
+                <div class="preview dark" id="variant-3">
                     <svg width="150" height="150" viewBox="-150 -150 300 300" style="overflow: visible;">
                         <g class="dots-container"></g>
                     </svg>
@@ -258,7 +263,7 @@
         <div class="grid">
             <div class="card">
                 <span class="tag">CSS Snappy</span>
-                <div class="preview">
+                <div class="preview dark">
                     <img src="grid-variant-snappy.svg" alt="Snappy SVG">
                 </div>
                 <h3>SVG Snappy</h3>
@@ -266,7 +271,7 @@
             </div>
             <div class="card">
                 <span class="tag">CSS Bouncy</span>
-                <div class="preview">
+                <div class="preview dark">
                     <img src="grid-variant-bouncy.svg" alt="Bouncy SVG">
                 </div>
                 <h3>SVG Bouncy</h3>
@@ -274,7 +279,7 @@
             </div>
             <div class="card">
                 <span class="tag">CSS Fluid</span>
-                <div class="preview">
+                <div class="preview dark">
                     <img src="grid-variant-fluid.svg" alt="Fluid SVG">
                 </div>
                 <h3>SVG Fluid</h3>
@@ -423,24 +428,21 @@
         duration: 500, 
         hold: 1000, 
         stagger: 30, 
-        easing: 'cubic-bezier(0.34, 1.56, 0.64, 1)', // Snappy with overshoot
-        dotRadius: 3
+        easing: 'cubic-bezier(0.34, 1.56, 0.64, 1)' // Snappy with overshoot
       });
 
       initGridAnimation('variant-2', { 
         duration: 800, 
         hold: 1000, 
         stagger: 40, 
-        easing: 'cubic-bezier(0.68, -0.6, 0.32, 1.6)', // Bouncy elastic
-        dotRadius: 3
+        easing: 'cubic-bezier(0.68, -0.6, 0.32, 1.6)' // Bouncy elastic
       });
 
       initGridAnimation('variant-3', { 
         duration: 1200, 
         hold: 800, 
         stagger: 10, 
-        easing: 'cubic-bezier(0.45, 0, 0.55, 1)', // Fluid
-        dotRadius: 3
+        easing: 'cubic-bezier(0.45, 0, 0.55, 1)' // Fluid
       });
     </script>
 
