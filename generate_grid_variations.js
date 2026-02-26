@@ -8,7 +8,8 @@ const maxH = 452;
 const centerX = maxW / 2;
 const centerY = maxH / 2;
 
-const centeredFrames = frames.map(frameDots => {
+const centeredFrames = frames.map(frame => {
+    const frameDots = frame.points;
     let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
     frameDots.forEach(dot => {
         if (dot.x < minX) minX = dot.x;

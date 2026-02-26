@@ -341,7 +341,6 @@
           const hold = options.hold || 1500;
           const stagger = options.stagger === undefined ? 25 : options.stagger;
           const easing = options.easing || "cubic-bezier(0.4, 0, 0.2, 1)";
-          const noGrowth = options.noGrowth !== undefined ? options.noGrowth : true;
           const dotRadius = options.dotRadius || 4.726;
 
           let dots = [];
@@ -402,7 +401,7 @@
                 currentPositions[i] = { x: target.x, y: target.y };
                 
                 const delay = i * stagger;
-                const r = (!noGrowth && index === 4) ? (dotRadius * 1.4) : dotRadius;
+                const r = dotRadius;
                 
                 dot.style.transition = `transform ${duration}ms ${easing} ${delay}ms, r ${duration}ms ${easing} ${delay}ms, opacity ${duration}ms ease ${delay}ms`;
                 dot.setAttribute("r", r);
