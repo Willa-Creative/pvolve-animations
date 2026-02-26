@@ -61,14 +61,14 @@
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
         }
 
         .card {
             background: var(--card-bg);
-            border-radius: 12px;
-            padding: 40px 20px;
+            border-radius: 16px;
+            padding: 50px 30px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -78,18 +78,13 @@
             text-align: center;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
-        }
-
         .preview {
-            width: 150px;
-            height: 150px;
+            width: 280px;
+            height: 280px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             background: #fdfdfd;
             border-radius: 50%;
             border: 1px solid rgba(0,0,0,0.05);
@@ -212,23 +207,12 @@
     </section>
 
     <section>
-        <h2>Hero Grid Animation: Seamless Loop</h2>
-        <div class="large-preview-container" id="main-anim">
-            <div class="animation-wrapper">
-                <svg width="600" height="600" viewBox="-300 -300 600 600" style="overflow: visible; position: absolute;">
-                    <g class="dots-container"></g>
-                </svg>
-            </div>
-        </div>
-    </section>
-
-    <section>
         <h2>Grid Motion Variations</h2>
         <div class="grid">
             <div class="card">
                 <span class="tag">Variant 1: Snappy Stagger</span>
                 <div class="preview dark" id="variant-1">
-                    <svg width="150" height="150" viewBox="-150 -150 300 300" style="overflow: visible;">
+                    <svg width="240" height="240" viewBox="-150 -150 300 300" style="overflow: visible;">
                         <g class="dots-container"></g>
                     </svg>
                 </div>
@@ -238,7 +222,7 @@
             <div class="card">
                 <span class="tag">Variant 2: Elastic Bounce</span>
                 <div class="preview dark" id="variant-2">
-                    <svg width="150" height="150" viewBox="-150 -150 300 300" style="overflow: visible;">
+                    <svg width="240" height="240" viewBox="-150 -150 300 300" style="overflow: visible;">
                         <g class="dots-container"></g>
                     </svg>
                 </div>
@@ -248,7 +232,7 @@
             <div class="card">
                 <span class="tag">Variant 3: Fluid Flow</span>
                 <div class="preview dark" id="variant-3">
-                    <svg width="150" height="150" viewBox="-150 -150 300 300" style="overflow: visible;">
+                    <svg width="240" height="240" viewBox="-150 -150 300 300" style="overflow: visible;">
                         <g class="dots-container"></g>
                     </svg>
                 </div>
@@ -416,13 +400,6 @@
       }
 
       // Initialize all variations
-      initGridAnimation('main-anim', { 
-        duration: 700, 
-        hold: 1200, 
-        stagger: 20, 
-        easing: 'cubic-bezier(0.5, 0, 0.1, 1)' 
-      });
-
       initGridAnimation('variant-1', { 
         duration: 500, 
         hold: 1000, 
